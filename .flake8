@@ -1,0 +1,10 @@
+[flake8]
+max_line_length = 120
+show_source = true
+doctests = false
+exclude =
+    ./tests/features
+    .git
+    .tox
+    __pycache__
+    ./docs/conf.py
