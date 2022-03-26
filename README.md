@@ -113,7 +113,8 @@ unvisited_urls:
   - https://monzo.com/i
   - https://monzo.com/static/docs/modern-slavery-statement/modern-slavery-statement-2021.pdf
 ```
-A output file is also generated with the crawled and unvisited url's in the directory `outputs` 
+
+An output file is also generated with the crawled and unvisited url's in the directory `outputs` 
 with the filename as provided in the `-o` option
 ---
 ### Run tests
