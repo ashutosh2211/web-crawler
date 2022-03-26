@@ -54,11 +54,11 @@ To install python:
 ```
 
 To run the cli:
-```
+```shell
 ➜ cd web-crawler
 ➜ [web-crawler] pip install poetry==1.1.13
 ➜ [web-crawler] poetry install
-➜ [web-crawler] poetry run python crawler.py --seeds "https://monzo.com" --allowed-domains "monzo.com" --concurrency 4
+➜ [web-crawler] poetry run python main.py --seeds "https://monzo.com" --allowed-domains "monzo.com" --fetch-concurrency 4 --parse-concurrency 2 -f yaml -o output
 ```
 ### Sample output
 ```shell
