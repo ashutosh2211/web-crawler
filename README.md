@@ -32,8 +32,8 @@ optional arguments:
                         
   -o OUTPUT_FILE_NAME 
                         The name of the output file where the result sets would be persisted.
-                        If argument is not given, the result set is only displayed on console.                 
-                        The directory for finding the files is `outputs`.
+                        The output directory is `outputs` within the `web-crawler` directory.
+                        If argument is not given, the result set is only displayed on console.
   
   --fetch-concurrency FETCH_CONCURRENCY
                         Number of concurrent threads used for fetching url pages. 
@@ -79,6 +79,9 @@ unvisited_urls:
   - https://monzo.com/features
   - https://monzo.com/i
 ```
+Unvisited URL's represent the links that were not crawled as either there was an 
+error in fetching the content or the link was not an html page (e.g. an image or document).
+
 -----
 Another example
 ```shell
@@ -115,7 +118,12 @@ unvisited_urls:
 ```
 
 An output file is also generated with the crawled and unvisited url's in the directory `outputs` 
-with the filename as provided in the `-o` option
+with the filename as provided in the `-o` option.
+
+#### Graceful Termination
+- If the process is interrupted then the crawler threads ae stopped once they have finished 
+their existing tasks and the results are displayed on the console and are written
+to the output file if that option was provided.
 ---
 ### Run tests
 ```
