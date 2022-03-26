@@ -15,7 +15,7 @@ A Web Crawler that starts with a set of seed url's and only follows internal lin
 
 mandatory arguments:
    --seeds SEEDS
-                        The initial url sset from which crawling will begin. In case of multiple seed
+                        The initial url set from which crawling will begin. In case of multiple seed
                         urls the urls should be sparated by "|", e.g. "https://monzo.com|https://wikipedia.org"
 
 optional arguments:
@@ -32,7 +32,7 @@ optional arguments:
                         
   -o OUTPUT_FILE_NAME 
                         The name of the output file where the result sets would be persisted.
-                        If argument is not given, the results et is only displayed on console.                 
+                        If argument is not given, the result set is only displayed on console.                 
                         The directory for finding the files is `outputs`.
   
   --fetch-concurrency FETCH_CONCURRENCY
@@ -58,11 +58,11 @@ To run the cli:
 ➜ cd web-crawler
 ➜ [web-crawler] pip install poetry==1.1.13
 ➜ [web-crawler] poetry install
-➜ [web-crawler] poetry run python crawler.py --seeds "https://monzo.com" --allowed-domains monzo.com --concurrency 4
+➜ [web-crawler] poetry run python crawler.py --seeds "https://monzo.com" --allowed-domains "monzo.com" --concurrency 4
 ```
 ### Sample output
 ```shell
-➜ [web-crawler] poetry run python main.py --seeds "https://monzo.com" --allowed-domains monzo.com --fetch-concurrency 4 --parse-concurrency 2 -f yaml -o output
+➜ [web-crawler] poetry run python main.py --seeds "https://monzo.com" --allowed-domains "monzo.com" --fetch-concurrency 4 --parse-concurrency 2 -f yaml -o output
 
 INFO:root:Visited url count: 229
 INFO:root:Visited url count: 305
@@ -82,7 +82,7 @@ unvisited_urls:
 -----
 Another example
 ```shell
-➜ [web-crawler] poetry run python main.py --seeds "https://monzo.com|https://wikipedia.org" --allowed-domains monzo.com|wikipedia.org --fetch-concurrency 4 --parse-concurrency 4 -f yaml -o output
+➜ [web-crawler] poetry run python main.py --seeds "https://monzo.com|https://wikipedia.org" --allowed-domains "monzo.com|wikipedia.org" --fetch-concurrency 4 --parse-concurrency 4 -f yaml -o output
 
 INFO:root:Visited url count: 65
 INFO:root:Visited url count: 105

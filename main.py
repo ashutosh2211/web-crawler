@@ -18,7 +18,7 @@ def main():
                         help='''The initial URLs at which to start crawling.''')
     parser.add_argument('--allowed-domains', dest='allowed_domains', action=AllowedDomainsAction,
                         help='The list of domains that we are allowed to crawl.')
-    parser.add_argument('-f', '--formatter', dest='formatter',
+    parser.add_argument('-f', '--formatter', dest='formatter', default="yaml",
                         help='Print output in yaml form.')
     parser.add_argument('-o', '--output-file-name', dest='output_file_name',
                         help='''Write output to file to path `outputs/<file_name>`''')
