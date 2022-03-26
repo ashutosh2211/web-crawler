@@ -6,6 +6,9 @@ from web_crawler.crawler import WebCrawler
 from web_crawler.formatter.output_factory import OutputStream
 from web_crawler.validators.input_validator import SeedsAction, AllowedDomainsAction
 
+OUTPUT_DIR = "outputs"
+CONFIG_PATH = "web_crawler/config/config.yml"
+
 
 def main():
     logging.basicConfig(level=logging.INFO)
@@ -31,9 +34,8 @@ def main():
     allowed_domains = args.allowed_domains or []
     fetch_concurrency = int(args.fetch_concurrency)
     parse_concurrency = int(args.parse_concurrency)
-    output_dir = "outputs"
 
-    http_config = Config("web_crawler/config/config.yml")
+    http_config = Config(CONFIG_PATH)
 
     web_crawler = WebCrawler(seed_urls, fetch_concurrency, parse_concurrency, http_config,
                              allowed_domains=allowed_domains)
@@ -44,13 +46,12 @@ def main():
     combined_data = {**visited_urls_data, **unvisited_urls_data}
 
     if args.formatter:
-        formatter = OutputStream.get_writer(args.formatter)
+        formatter = OutputStream.get_formatter(args.formatter)
         formatter.write(combined_data)
 
     if args.output_file_name:
-        writer = OutputStream.get_writer("file")
-        output_filepath = f"{output_dir}/{args.output_file_name}"
-        writer.write(combined_data, output_filepath)
+        writer = OutputStream.get_writer(OUTPUT_DIR)
+        writer.write(combined_data, args.output_file_name)
 
 
 if __name__ == "__main__":
